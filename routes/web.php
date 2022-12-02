@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImageController;
+use App\Models\Image;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,6 @@ use App\Http\Controllers\ImageController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome',['list'=>Image::all()],['SN'=>1]);
 });
 Route::post('/',[ImageController::class,'saveImg'])->name('saveImg');
